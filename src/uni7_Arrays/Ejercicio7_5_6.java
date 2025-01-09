@@ -1,59 +1,71 @@
 package uni7_Arrays;
 
 import javax.swing.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Realiza un programa que rellene un array de 6 filas por 10 columnas con números enteros positivos comprendidos
- * entre 0 y 1000 (ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del
- * mínimo.
+ * Modifica el programa anterior de tal forma que no se repita ningún número en el array.
  * @author Saulolo
  */
-public class Ejercicio7_5_5 {
+public class Ejercicio7_5_6 {
 
     public static void main(String[] args) {
 
-        String intro = "MÁXIMO Y MÍNIMO DE UN ARRAY";
+        String intro = "MÁXIMO Y MÍNIMO DE UN ARRAY SIN REPETIR NÚMERO";
         JOptionPane.showMessageDialog(null, intro);
 
         int[][] array = new int[6][10];
+        Set<Integer> numerosGenerados = new HashSet<>();
+        int filas = array.length;
+        int columnas = array[0].length;
+
+        // Rellenar el array con números únicos
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                int numero;
+                do {
+                    numero = (int) (Math.random() * 1001);
+                } while (numerosGenerados.contains(numero)); // Verificar si ya existe
+                array[i][j] = numero;
+                numerosGenerados.add(numero);
+            }
+        }
+
+        // Encontrar el máximo y el mínimo
         int maximo = Integer.MIN_VALUE;
         int minimo = Integer.MAX_VALUE;
-        int filaMax = 0, colMax = 0;
-        int filaMin = 0, colMin = 0;
+        int posMaxFila = -1, posMaxColumna = -1;
+        int posMinFila = -1, posMinColumna = -1;
 
         // Rellenar el array con números aleatorios y buscar máximo y mínimo
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = (int)(Math.random() * 1001); // Generar números entre 0 y 1000
-
-                // Comprobar si es el máximo
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
                 if (array[i][j] > maximo) {
                     maximo = array[i][j];
-                    filaMax = i;
-                    colMax = j;
+                    posMaxFila = i;
+                    posMaxColumna = j;
                 }
-
-                // Comprobar si es el mínimo
                 if (array[i][j] < minimo) {
                     minimo = array[i][j];
-                    filaMin = i;
-                    colMin = j;
+                    posMinFila = i;
+                    posMinColumna = j;
                 }
             }
         }
 
-        // Mostrar el array
-        System.out.println("Array generado:");
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.printf("%5d ", array[i][j]); // Formato de salida
+        // Imprimir el array
+        System.out.println("Contenido del array:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                System.out.printf("%4d ", array[i][j]);
             }
             System.out.println();
         }
 
-        // Mostrar resultados
-        System.out.println("\nEl valor máximo es " + maximo + " en la posición [" + filaMax + "][" + colMax + "].");
-        System.out.println("El valor mínimo es " + minimo + " en la posición [" + filaMin + "][" + colMin + "].");
+        // Imprimir el máximo y mínimo con sus posiciones
+        System.out.println("\nNúmero máximo: " + maximo + " en la posición [" + posMaxFila + "][" + posMaxColumna + "]");
+        System.out.println("Número mínimo: " + minimo + " en la posición [" + posMinFila + "][" + posMinColumna + "]");
     }
 }
 

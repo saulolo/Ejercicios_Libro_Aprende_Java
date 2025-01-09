@@ -1,92 +1,125 @@
 package uni7_Arrays;
 
 import javax.swing.*;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Realiza un programa que sea capaz de rotar todos los elementos de una matriz cuadrada una posición en el sentido de
- * las agujas del reloj. La matriz debe tener 12 filas por 12 columnas y debe contener números generados al azar entre
- * 0 y 100. Se debe mostrar tanto la matriz original como la matriz resultado, ambas con los números convenientemente
- * alineados.
+ * Realiza el juego de las tres en raya.
  * @author Saulolo
  */
-public class Ejercicio7_5_9 {
+public class Ejercicio7_5_10 {
 
+    // Crear un tablero 3x3
+    static char[][] tablero = {
+            {' ', ' ', ' '},
+            {' ', ' ', ' '},
+            {' ', ' ', ' '}
+    };
+
+    // Definir símbolos de los jugadores
+    static char jugadorActual = 'X';
     public static void main(String[] args) {
 
-        String intro = "ROTANDO ELEMENTOS DE UNA MATRIZ' ";
+        String intro = "TRES EN RAYA";
         JOptionPane.showMessageDialog(null, intro);
 
-        final int SIZE = 12;
-        int[][] matriz = new int[SIZE][SIZE];
-        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean juegoTerminado = false;
 
-        // Generar matriz con números aleatorios entre 0 y 100
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                matriz[i][j] = random.nextInt(101);
+        // Ciclo principal del juego
+        while (!juegoTerminado) {
+            // Mostrar el tablero
+            mostrarTablero();
+
+            // Pedir al jugador que ingrese su movimiento
+            System.out.println("Jugador " + jugadorActual + ", ingresa tu movimiento (fila [1-3] y columna [1-3]):");
+            int fila = scanner.nextInt() - 1; // Convertir a índice del array
+            int columna = scanner.nextInt() - 1;
+
+            // Validar el movimiento
+            if (movimientoValido(fila, columna)) {
+                tablero[fila][columna] = jugadorActual; // Realizar el movimiento
+
+                // Verificar si el jugador actual ha ganado
+                if (hayGanador()) {
+                    mostrarTablero();
+                    System.out.println("¡El jugador " + jugadorActual + " ha ganado!");
+                    juegoTerminado = true;
+                } else if (tableroLleno()) {
+                    mostrarTablero();
+                    System.out.println("¡Es un empate!");
+                    juegoTerminado = true;
+                } else {
+                    // Cambiar al siguiente jugador
+                    jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
+                }
+            } else {
+                System.out.println("Movimiento inválido. Inténtalo de nuevo.");
             }
         }
 
-        // Mostrar matriz original
-        System.out.println("Matriz original:");
-        mostrarMatriz(matriz);
-
-        // Rotar la matriz
-        rotarMatriz(matriz);
-
-        // Mostrar matriz rotada
-        System.out.println("\nMatriz rotada:");
-        mostrarMatriz(matriz);
+        scanner.close();
     }
 
-    // Método para mostrar la matriz
-    public static void mostrarMatriz(int[][] matriz) {
-        for (int[] fila : matriz) {
-            for (int num : fila) {
-                System.out.printf("%4d", num);
+    // Función para mostrar el tablero
+    public static void mostrarTablero() {
+        System.out.println("  1 2 3");
+        for (int i = 0; i < 3; i++) {
+            System.out.print((i + 1) + " ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(tablero[i][j]);
+                if (j < 2) System.out.print("|");
             }
             System.out.println();
+            if (i < 2) System.out.println("  -----");
         }
     }
 
-    // Método para rotar la matriz
-    public static void rotarMatriz(int[][] matriz) {
-        int n = matriz.length;
+    // Función para validar si un movimiento es válido
+    public static boolean movimientoValido(int fila, int columna) {
+        if (fila < 0 || fila >= 3 || columna < 0 || columna >= 3) {
+            return false; // Fuera de los límites del tablero
+        }
+        return tablero[fila][columna] == ' '; // La casilla debe estar vacía
+    }
 
-        // Procesar cada capa de la matriz
-        for (int capa = 0; capa < n / 2; capa++) {
-            int inicio = capa;
-            int fin = n - 1 - capa;
-
-            // Guardar los elementos de la fila superior de la capa
-            int[] temp = new int[fin - inicio];
-            for (int i = 0; i < temp.length; i++) {
-                temp[i] = matriz[inicio][inicio + i];
+    // Función para verificar si el tablero está lleno (empate)
+    public static boolean tableroLleno() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] == ' ') {
+                    return false;
+                }
             }
+        }
+        return true;
+    }
 
-            // Mover los elementos de la columna izquierda hacia la fila superior
-            for (int i = inicio; i < fin; i++) {
-                matriz[inicio][i] = matriz[n - 1 - (i - inicio)][inicio];
-            }
-
-            // Mover los elementos de la fila inferior hacia la columna izquierda
-            for (int i = inicio; i < fin; i++) {
-                matriz[n - 1 - (i - inicio)][inicio] = matriz[fin][n - 1 - (i - inicio)];
-            }
-
-            // Mover los elementos de la columna derecha hacia la fila inferior
-            for (int i = inicio; i < fin; i++) {
-                matriz[fin][n - 1 - (i - inicio)] = matriz[i][fin];
-            }
-
-            // Colocar los elementos de la fila superior almacenados en la columna derecha
-            for (int i = 0; i < temp.length; i++) {
-                matriz[i + inicio][fin] = temp[i];
+    // Función para verificar si hay un ganador
+    public static boolean hayGanador() {
+        // Verificar filas
+        for (int i = 0; i < 3; i++) {
+            if (tablero[i][0] == jugadorActual && tablero[i][1] == jugadorActual && tablero[i][2] == jugadorActual) {
+                return true;
             }
         }
 
+        // Verificar columnas
+        for (int j = 0; j < 3; j++) {
+            if (tablero[0][j] == jugadorActual && tablero[1][j] == jugadorActual && tablero[2][j] == jugadorActual) {
+                return true;
+            }
+        }
+
+        // Verificar diagonales
+        if (tablero[0][0] == jugadorActual && tablero[1][1] == jugadorActual && tablero[2][2] == jugadorActual) {
+            return true;
+        }
+        if (tablero[0][2] == jugadorActual && tablero[1][1] == jugadorActual && tablero[2][0] == jugadorActual) {
+            return true;
+        }
+
+        return false;
     }
 
 }

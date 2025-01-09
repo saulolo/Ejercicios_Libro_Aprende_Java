@@ -1,149 +1,70 @@
 package uni7_Arrays;
 
 import javax.swing.*;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
- * Mejora el juego “Busca el tesoro” de tal forma que si hay una mina a una casilla de distancia, el programa avise
- * diciendo ¡Cuidado! ¡Hay una mina cerca!.
+ * Escribe un programa que, dada una posición en un tablero de ajedrez, nos diga a qué casillas podría saltar un alfil
+ * que se encuentra en esa posición. Como se indica en la figura (Libro Aprende Java con ejercicio, pag 132), el alfil
+ * se mueve siempre en diagonal. El tablero cuenta con 64 casillas. Las columnas se indican con las letras de la “a” a
+ * la “h” y las filas se indican del 1 al 8.
+ * Ejemplo:
+ * Introduzca la posición del alfil: d5
+ * El álfil puede moverse a las siguientes posiciones:
+ * h1 a2 g2 b3 f3 c4 e4 c6 e6 b7 f7 a8 g8
  * @author Saulolo
  */
-public class Ejercicio7_5_7 {
+public class Ejercicio7_5_8 {
 
     public static void main(String[] args) {
 
-        String intro = "MEJORANDO EL JUEGO 'BUSCA EL TESORO' ";
+        String intro = "¿A DONDE SALTA EL ALFIL?' ";
         JOptionPane.showMessageDialog(null, intro);
 
-        // Constantes
-        final int VACIO = 0;
-        final int MINA = 1;
-        final int TESORO = 2;
-        final int INTENTO = 3;
-
-        int[][] cuadrante = new int[5][4];
-        int x, y;
-
-        // Inicializa el array
-        for (x = 0; x < 5; x++) {
-            for (y = 0; y < 4; y++) {
-                cuadrante[x][y] = VACIO;
-            }
-        }
-
-        // Coloca la mina
-        int minaX = (int) (Math.random() * 5);
-        int minaY = (int) (Math.random() * 4);
-        cuadrante[minaX][minaY] = MINA;
-
-        // Coloca el tesoro
-        int tesoroX, tesoroY;
-        do {
-            tesoroX = (int) (Math.random() * 5);
-            tesoroY = (int) (Math.random() * 4);
-        } while (tesoroX == minaX && tesoroY == minaY);
-        cuadrante[tesoroX][tesoroY] = TESORO;
-
-        // Inicio del juego
-        System.out.println("¡BUSCA EL TESORO!");
-
-        boolean salir = false;
         Scanner scanner = new Scanner(System.in);
 
-        do {
-            // Pinta el cuadrante
-            for (y = 3; y >= 0; y--) {
-                System.out.print(y + "|");
-                for (x = 0; x < 5; x++) {
-                    if (cuadrante[x][y] == INTENTO) {
-                        System.out.print("X ");
-                    } else {
-                        System.out.print("  ");
-                    }
-                }
-                System.out.println();
-            }
-            System.out.println("  ----------");
-            System.out.println("   0 1 2 3 4");
+        // Pedir la posición inicial del alfil
+        System.out.print("Introduzca la posición del alfil (ejemplo: d5): ");
+        String posicion = scanner.nextLine();
 
-            // Pedir coordenadas al usuario
-            System.out.print("Coordenada x: ");
-            x = scanner.nextInt();
-            System.out.print("Coordenada y: ");
-            y = scanner.nextInt();
+        // Extraer la columna y la fila de la posición
+        char columnaInicial = posicion.charAt(0);
+        int filaInicial = Character.getNumericValue(posicion.charAt(1));
 
-            // Verifica minas cercanas
-            if (hayMinaCerca(cuadrante, x, y)) {
-                System.out.println("¡Cuidado! ¡Hay una mina cerca!");
-            }
+        // Convertir la columna a un índice (0 a 7)
+        int columnaIndex = columnaInicial - 'a';
 
-            // Mira lo que hay en las coordenadas indicadas por el usuario
-            switch (cuadrante[x][y]) {
-                case VACIO:
-                    cuadrante[x][y] = INTENTO;
-                    break;
-                case MINA:
-                    System.out.println("Lo siento, has perdido.");
-                    salir = true;
-                    break;
-                case TESORO:
-                    System.out.println("¡Enhorabuena! ¡Has encontrado el tesoro!");
-                    salir = true;
-                    break;
-                default:
-            }
-        } while (!salir);
+        System.out.println("El alfil puede moverse a las siguientes posiciones:");
 
-        // Pinta el cuadrante final
-        for (y = 3; y >= 0; y--) {
-            System.out.print(y + " ");
-            for (x = 0; x < 5; x++) {
-                switch (cuadrante[x][y]) {
-                    case VACIO:
-                        System.out.print("  ");
-                        break;
-                    case MINA:
-                        System.out.print("* ");
-                        break;
-                    case TESORO:
-                        System.out.print("€ ");
-                        break;
-                    case INTENTO:
-                        System.out.print("X ");
-                        break;
-                    default:
-                }
-            }
-            System.out.println();
+        // Generar movimientos en las 4 diagonales
+        // Diagonal superior derecha
+        for (int i = 1; columnaIndex + i < 8 && filaInicial + i <= 8; i++) {
+            char nuevaColumna = (char) (columnaInicial + i);
+            int nuevaFila = filaInicial + i;
+            System.out.print(nuevaColumna + "" + nuevaFila + " ");
         }
-        System.out.println("  ----------");
-        System.out.println("   0 1 2 3 4");
-    }
 
-    /**
-     * Comprueba si hay una mina cerca de las coordenadas dadas.
-     */
-    public static boolean hayMinaCerca(int[][] cuadrante, int x, int y) {
-        int filas = cuadrante.length;
-        int columnas = cuadrante[0].length;
-
-        // Recorre las 8 posiciones vecinas
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                int nx = x + i;
-                int ny = y + j;
-
-                // Asegúrate de que las coordenadas estén dentro del tablero
-                if (nx >= 0 && nx < filas && ny >= 0 && ny < columnas) {
-                    if (cuadrante[nx][ny] == 1) { // Si hay una mina
-                        return true;
-                    }
-                }
-            }
+        // Diagonal superior izquierda
+        for (int i = 1; columnaIndex - i >= 0 && filaInicial + i <= 8; i++) {
+            char nuevaColumna = (char) (columnaInicial - i);
+            int nuevaFila = filaInicial + i;
+            System.out.print(nuevaColumna + "" + nuevaFila + " ");
         }
-        return false;
+
+        // Diagonal inferior derecha
+        for (int i = 1; columnaIndex + i < 8 && filaInicial - i >= 1; i++) {
+            char nuevaColumna = (char) (columnaInicial + i);
+            int nuevaFila = filaInicial - i;
+            System.out.print(nuevaColumna + "" + nuevaFila + " ");
+        }
+
+        // Diagonal inferior izquierda
+        for (int i = 1; columnaIndex - i >= 0 && filaInicial - i >= 1; i++) {
+            char nuevaColumna = (char) (columnaInicial - i);
+            int nuevaFila = filaInicial - i;
+            System.out.print(nuevaColumna + "" + nuevaFila + " ");
+        }
+
     }
 
 }

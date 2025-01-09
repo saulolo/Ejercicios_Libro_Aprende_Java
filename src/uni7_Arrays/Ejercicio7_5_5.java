@@ -3,63 +3,57 @@ package uni7_Arrays;
 import javax.swing.*;
 
 /**
- * Modifica el programa anterior (Ejercicio7_5_2) de tal forma que las sumas parciales y la suma
- * total aparezcan en la pantalla con un pequeño retardo, dando la impresión de que el ordenador se
- * queda “pensando” antes de mostrar los números.
- *
+ * Realiza un programa que rellene un array de 6 filas por 10 columnas con números enteros positivos comprendidos
+ * entre 0 y 1000 (ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del
+ * mínimo.
  * @author Saulolo
  */
-public class Ejercicio7_5_4 {
+public class Ejercicio7_5_5 {
 
     public static void main(String[] args) {
 
-
-        String intro = "GENERANDO NÚMEROS ALEATORIOS Y MOSTRANDO SUMAS CON RETARDO";
+        String intro = "MÁXIMO Y MÍNIMO DE UN ARRAY";
         JOptionPane.showMessageDialog(null, intro);
 
-        int[][] num = new int[4][5];
-        int[] sumaFilas = new int[4];
-        int[] sumaColumnas = new int[5];
-        int sumaTotal = 0;
+        int[][] array = new int[6][10];
+        int maximo = Integer.MIN_VALUE;
+        int minimo = Integer.MAX_VALUE;
+        int filaMax = 0, colMax = 0;
+        int filaMin = 0, colMin = 0;
 
-        // Llenar el array con números aleatorios y calcular las sumas
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num[i].length; j++) {
-                num[i][j] = (int) (Math.random() * (999 - 100 + 1)) + 100; // Generar número aleatorio
-                sumaFilas[i] += num[i][j];
-                sumaColumnas[j] += num[i][j];
-                sumaTotal += num[i][j];
+        // Rellenar el array con números aleatorios y buscar máximo y mínimo
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (int)(Math.random() * 1001); // Generar números entre 0 y 1000
+
+                // Comprobar si es el máximo
+                if (array[i][j] > maximo) {
+                    maximo = array[i][j];
+                    filaMax = i;
+                    colMax = j;
+                }
+
+                // Comprobar si es el mínimo
+                if (array[i][j] < minimo) {
+                    minimo = array[i][j];
+                    filaMin = i;
+                    colMin = j;
+                }
             }
         }
 
-        // Mostrar el array con las sumas parciales y totales
-        System.out.println("Array bidimensional con sumas:");
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num[i].length; j++) {
-                System.out.printf("%5d", num[i][j]);
+        // Mostrar el array
+        System.out.println("Array generado:");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf("%5d ", array[i][j]); // Formato de salida
             }
-            System.out.printf(" | Suma fila %d: %d\n", i + 1, sumaFilas[i]);
+            System.out.println();
         }
 
-        System.out.println("========================");
-
-        try {
-            // Mostrar sumas de columnas con retardo
-            System.out.println("Calculando las sumas de las columnas...");
-            Thread.sleep(1000); // Retardo de 1 segundo
-            for (int j = 0; j < sumaColumnas.length; j++) {
-                System.out.printf("Suma columna %d: %d\n", j + 1, sumaColumnas[j]);
-                Thread.sleep(500); // Retardo de 0.5 segundos entre columnas
-            }
-
-            // Mostrar suma total con retardo
-            System.out.println("Calculando la suma total...");
-            Thread.sleep(1500); // Retardo de 1.5 segundos
-            System.out.println("Suma total: " + sumaTotal);
-
-        } catch (InterruptedException e) {
-            System.err.println("El cálculo fue interrumpido.");
-        }
+        // Mostrar resultados
+        System.out.println("\nEl valor máximo es " + maximo + " en la posición [" + filaMax + "][" + colMax + "].");
+        System.out.println("El valor mínimo es " + minimo + " en la posición [" + filaMin + "][" + colMin + "].");
     }
 }
 

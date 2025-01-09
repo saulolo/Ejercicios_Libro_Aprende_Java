@@ -4,65 +4,71 @@ import javax.swing.*;
 import java.util.Random;
 
 /**
- * Realiza un programa que muestre por pantalla un array de 9 filas por 9 columnas relleno con números aleatorios entre
- * 500 y 900. A continuación, el programa debe mostrar los números de la diagonal que va desde la esquina inferior
- * izquierda a la esquina superior derecha, así como el máximo, el mínimo y la media de los números que hay en esa diagonal.
+ * Realiza un programa que calcule la estatura media, mínima y máxima en centímetros de personas de diferentes países.
+ * El array que contiene los nombres de los paises es el siguiente: pais = {“España”, “Rusia”, “Japón”, “Australia”}.
+ * Los datos sobre las estaturas se deben simular mediante un array de 4 filas por 10 columnas con números aleatorios
+ * generados al azar entre 140 y 210. Los decimales de la media se pueden despreciar. Los nombres de los países se deben
+ * mostrar utilizando el array de países (no se pueden escribir directamente).
  * @author Saulolo
  */
-public class Ejercicio7_5_12 {
+public class Ejercicio7_5_13 {
 
     public static void main(String[] args) {
 
-        String intro = "NÚMEROS EN DIAGONAL CON MÁXIMO, MÍNIMO Y MEDIA";
+        String intro = "CÁLCULO DE ESTATURA EN PAISES";
         JOptionPane.showMessageDialog(null, intro);
-        // Crear el array bidimensional de 9x9
-        int[][] matriz = new int[9][9];
+
+        // Array de países
+        String[] paises = {"España", "Rusia", "Japón", "Australia"};
+
+        // Array bidimensional de estaturas (4 filas x 10 columnas)
+        int[][] estaturas = new int[4][10];
         Random random = new Random();
 
-        // Variables para el cálculo
-        int suma = 0;
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-
-        // Llenar la matriz con números aleatorios entre 500 y 900
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                matriz[i][j] = 500 + random.nextInt(401); // Aleatorio entre 500 y 900
+        // Llenar el array con valores aleatorios entre 140 y 210
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 10; j++) {
+                estaturas[i][j] = 140 + random.nextInt(71); // Aleatorio entre 140 y 210
             }
         }
 
-        // Mostrar la matriz
-        System.out.println("Matriz generada:");
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.printf("%4d", matriz[i][j]);
+        // Mostrar los resultados por país
+        for (int i = 0; i < 4; i++) {
+            System.out.println("País: " + paises[i]);
+
+            int suma = 0;
+            int min = Integer.MAX_VALUE;
+            int max = Integer.MIN_VALUE;
+
+            // Calcular suma, mínimo y máximo para cada país
+            for (int j = 0; j < 10; j++) {
+                int estatura = estaturas[i][j];
+                suma += estatura;
+
+                if (estatura < min) {
+                    min = estatura;
+                }
+
+                if (estatura > max) {
+                    max = estatura;
+                }
             }
+
+            // Calcular la media (despreciando decimales)
+            int media = suma / 10;
+
+            // Mostrar estaturas y resultados
+            System.out.println("Estaturas: ");
+            for (int j = 0; j < 10; j++) {
+                System.out.print(estaturas[i][j] + " ");
+            }
+
+            System.out.println("\nEstatura media: " + media + " cm");
+            System.out.println("Estatura mínima: " + min + " cm");
+            System.out.println("Estatura máxima: " + max + " cm");
             System.out.println();
         }
 
-        // Mostrar y calcular los valores de la diagonal secundaria
-        System.out.println("\nNúmeros en la diagonal secundaria:");
-        for (int i = 0; i < 9; i++) {
-            int numeroDiagonal = matriz[i][8 - i]; // Elemento de la diagonal secundaria
-            System.out.print(numeroDiagonal + " ");
-            suma += numeroDiagonal;
-
-            if (numeroDiagonal > max) {
-                max = numeroDiagonal;
-            }
-            if (numeroDiagonal < min) {
-                min = numeroDiagonal;
-            }
-        }
-
-        // Calcular la media
-        double media = (double) suma / 9;
-
-        // Mostrar los resultados
-        System.out.println("\n\nResultados:");
-        System.out.println("Máximo: " + max);
-        System.out.println("Mínimo: " + min);
-        System.out.println("Media: " + media);
     }
     
 }

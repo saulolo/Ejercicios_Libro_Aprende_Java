@@ -1,127 +1,72 @@
 package uni7_Arrays;
 
 import javax.swing.*;
-import java.util.Scanner;
+import java.util.Random;
 
 /**
- * Realiza el juego de las tres en raya.
+ * Realiza un programa que muestre por pantalla un array de 10 filas por 10 columnas relleno con números aleatorios
+ * entre 200 y 300. A continuación, el programa debe mostrar los números de la diagonal que va desde la esquina superior
+ * izquierda a la esquina inferior derecha, así como el máximo, el mínimo y la media de los números que hay en esa
+ * diagonal.
  * @author Saulolo
  */
-public class Ejercicio7_5_10 {
+public class Ejercicio7_5_11 {
 
-    // Crear un tablero 3x3
-    static char[][] tablero = {
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '}
-    };
-
-    // Definir símbolos de los jugadores
-    static char jugadorActual = 'X';
     public static void main(String[] args) {
 
-        String intro = "TRES EN RAYA";
+        String intro = "NÚMEROS EN DIAGONAL";
         JOptionPane.showMessageDialog(null, intro);
 
-        Scanner scanner = new Scanner(System.in);
-        boolean juegoTerminado = false;
+        // Crear el array bidimensional de 10x10
+        int[][] matriz = new int[10][10];
+        Random random = new Random();
 
-        // Ciclo principal del juego
-        while (!juegoTerminado) {
-            // Mostrar el tablero
-            mostrarTablero();
+        // Variables para el cálculo
+        int suma = 0;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
 
-            // Pedir al jugador que ingrese su movimiento
-            System.out.println("Jugador " + jugadorActual + ", ingresa tu movimiento (fila [1-3] y columna [1-3]):");
-            int fila = scanner.nextInt() - 1; // Convertir a índice del array
-            int columna = scanner.nextInt() - 1;
-
-            // Validar el movimiento
-            if (movimientoValido(fila, columna)) {
-                tablero[fila][columna] = jugadorActual; // Realizar el movimiento
-
-                // Verificar si el jugador actual ha ganado
-                if (hayGanador()) {
-                    mostrarTablero();
-                    System.out.println("¡El jugador " + jugadorActual + " ha ganado!");
-                    juegoTerminado = true;
-                } else if (tableroLleno()) {
-                    mostrarTablero();
-                    System.out.println("¡Es un empate!");
-                    juegoTerminado = true;
-                } else {
-                    // Cambiar al siguiente jugador
-                    jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
-                }
-            } else {
-                System.out.println("Movimiento inválido. Inténtalo de nuevo.");
+        // Llenar la matriz con números aleatorios entre 200 y 300
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                matriz[i][j] = 200 + random.nextInt(101); // Aleatorio entre 200 y 300
             }
         }
 
-        scanner.close();
-    }
-
-    // Función para mostrar el tablero
-    public static void mostrarTablero() {
-        System.out.println("  1 2 3");
-        for (int i = 0; i < 3; i++) {
-            System.out.print((i + 1) + " ");
-            for (int j = 0; j < 3; j++) {
-                System.out.print(tablero[i][j]);
-                if (j < 2) System.out.print("|");
+        // Mostrar la matriz
+        System.out.println("Matriz generada:");
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.printf("%4d", matriz[i][j]);
             }
             System.out.println();
-            if (i < 2) System.out.println("  -----");
         }
-    }
 
-    // Función para validar si un movimiento es válido
-    public static boolean movimientoValido(int fila, int columna) {
-        if (fila < 0 || fila >= 3 || columna < 0 || columna >= 3) {
-            return false; // Fuera de los límites del tablero
-        }
-        return tablero[fila][columna] == ' '; // La casilla debe estar vacía
-    }
+        // Mostrar y calcular los valores de la diagonal principal
+        System.out.println("\nNúmeros en la diagonal principal:");
+        for (int i = 0; i < 10; i++) {
+            int numeroDiagonal = matriz[i][i];
+            System.out.print(numeroDiagonal + " ");
+            suma += numeroDiagonal;
 
-    // Función para verificar si el tablero está lleno (empate)
-    public static boolean tableroLleno() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (tablero[i][j] == ' ') {
-                    return false;
-                }
+            if (numeroDiagonal > max) {
+                max = numeroDiagonal;
             }
-        }
-        return true;
-    }
-
-    // Función para verificar si hay un ganador
-    public static boolean hayGanador() {
-        // Verificar filas
-        for (int i = 0; i < 3; i++) {
-            if (tablero[i][0] == jugadorActual && tablero[i][1] == jugadorActual && tablero[i][2] == jugadorActual) {
-                return true;
+            if (numeroDiagonal < min) {
+                min = numeroDiagonal;
             }
         }
 
-        // Verificar columnas
-        for (int j = 0; j < 3; j++) {
-            if (tablero[0][j] == jugadorActual && tablero[1][j] == jugadorActual && tablero[2][j] == jugadorActual) {
-                return true;
-            }
-        }
+        // Calcular la media
+        double media = (double) suma / 10;
 
-        // Verificar diagonales
-        if (tablero[0][0] == jugadorActual && tablero[1][1] == jugadorActual && tablero[2][2] == jugadorActual) {
-            return true;
-        }
-        if (tablero[0][2] == jugadorActual && tablero[1][1] == jugadorActual && tablero[2][0] == jugadorActual) {
-            return true;
-        }
-
-        return false;
+        // Mostrar los resultados
+        System.out.println("\n\nResultados:");
+        System.out.println("Máximo: " + max);
+        System.out.println("Mínimo: " + min);
+        System.out.println("Media: " + media);
     }
-
+    
 }
 
 

@@ -1,18 +1,20 @@
 package uni7_Arrays;
 
 import javax.swing.*;
-import java.util.Scanner;
 
 /**
- * Modifica el programa anterior (Ejercicio7_5_2) de tal forma que los números que se introducen
- * en el array se generen de forma aleatoria (valores entre 100 y 999).
+ * Modifica el programa anterior (Ejercicio7_5_2) de tal forma que las sumas parciales y la suma
+ * total aparezcan en la pantalla con un pequeño retardo, dando la impresión de que el ordenador se
+ * queda “pensando” antes de mostrar los números.
+ *
  * @author Saulolo
  */
-public class Ejercicio7_5_3 {
+public class Ejercicio7_5_4 {
 
     public static void main(String[] args) {
 
-        String intro = "GENERANDO NÚMEROS ALEATORIOS PARA ARRAYS BIDIMENSIONALES";
+
+        String intro = "GENERANDO NÚMEROS ALEATORIOS Y MOSTRANDO SUMAS CON RETARDO";
         JOptionPane.showMessageDialog(null, intro);
 
         int[][] num = new int[4][5];
@@ -23,7 +25,7 @@ public class Ejercicio7_5_3 {
         // Llenar el array con números aleatorios y calcular las sumas
         for (int i = 0; i < num.length; i++) {
             for (int j = 0; j < num[i].length; j++) {
-                num[i][j] = (int)(Math.random() * (999 - 100 + 1)) + 100; // Generar número aleatorio
+                num[i][j] = (int) (Math.random() * (999 - 100 + 1)) + 100; // Generar número aleatorio
                 sumaFilas[i] += num[i][j];
                 sumaColumnas[j] += num[i][j];
                 sumaTotal += num[i][j];
@@ -41,11 +43,23 @@ public class Ejercicio7_5_3 {
 
         System.out.println("========================");
 
-        for (int j = 0; j < sumaColumnas.length; j++) {
-            System.out.printf("Suma columna %d: %d\n", j + 1, sumaColumnas[j]);
-        }
+        try {
+            // Mostrar sumas de columnas con retardo
+            System.out.println("Calculando las sumas de las columnas...");
+            Thread.sleep(1000); // Retardo de 1 segundo
+            for (int j = 0; j < sumaColumnas.length; j++) {
+                System.out.printf("Suma columna %d: %d\n", j + 1, sumaColumnas[j]);
+                Thread.sleep(500); // Retardo de 0.5 segundos entre columnas
+            }
 
-        System.out.println("Suma total: " + sumaTotal);
+            // Mostrar suma total con retardo
+            System.out.println("Calculando la suma total...");
+            Thread.sleep(1500); // Retardo de 1.5 segundos
+            System.out.println("Suma total: " + sumaTotal);
+
+        } catch (InterruptedException e) {
+            System.err.println("El cálculo fue interrumpido.");
+        }
     }
 }
 
