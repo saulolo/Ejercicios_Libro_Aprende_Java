@@ -33,8 +33,6 @@ public class Ejercicio7_4_1 {
         /**
          * R=/ Los elementos que no han sido inicializados, se inicializan con cero por defecto.
          */
-
-
     }
 }
 
