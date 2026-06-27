@@ -1,8 +1,9 @@
 
-package Uni9_POO.Teoria;
+package Uni9_POO.Teoria.libro;
 
-/*@author Saulolo*/
-
+/**
+ * Definición de la Clase Libro
+ */
 public class Libro {
     
     //Atributos

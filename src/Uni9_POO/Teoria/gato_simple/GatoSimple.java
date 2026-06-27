@@ -1,8 +1,9 @@
 
-package Uni9_POO.Teoria;
+package Uni9_POO.Teoria.gato_simple;
 
-/*@author Saulolo*/
-
+/**
+ * Definición de la Clase Gato
+ */
 public class GatoSimple {
     
     //Atributos

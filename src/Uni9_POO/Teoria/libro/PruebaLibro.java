@@ -1,10 +1,9 @@
 
-package Uni9_POO.Teoria;
+package Uni9_POO.Teoria.libro;
 
-import Uni9_POO.Teoria.Libro;
-
-/*@author Saulolo*/
-
+/**
+ * Clase main del libro
+ */
 public class PruebaLibro {
     
     public static void main(String[] args) {
