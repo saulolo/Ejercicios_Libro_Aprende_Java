@@ -32,7 +32,7 @@ public class Ejercicio8_6_36 {
         Arrays.stream(filtrarPrimos(numbers))
                 .forEach(System.out::println);
 
-        System.out.println("\n== Escenario sin numeros primos ==");
+        System.out.println("\n== Escenario sin numeros.txt primos ==");
         int[] numbers2 = {4, 6, 8};
         Arrays.stream(filtrarPrimos(numbers2))
                 .forEach(System.out::println);

@@ -1,0 +1,8 @@
+Frutas:
+Vegetales:
+- Mango
+- Brocoli
+- Fresa
+- Lechuga
+- Piña
+- Zanahoria

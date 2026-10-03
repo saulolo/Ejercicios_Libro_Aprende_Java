@@ -76,6 +76,6 @@ public class Bucles {
 //            }
 //            m++;  
 //        } while (numeroIntroducido2 %2 == 0);
-//        System.out.println("La cantidad de numeros pares introducidos fueron: " + (m-1));
+//        System.out.println("La cantidad de numeros.txt pares introducidos fueron: " + (m-1));
     }
 

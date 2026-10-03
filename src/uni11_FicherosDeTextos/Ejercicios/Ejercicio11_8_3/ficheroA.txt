@@ -1,0 +1,3 @@
+Java es un lenguaje de programación líder lanzado en 1995 por Sun Microsystems que funciona bajo el lema "Escribir una
+vez, ejecutar en cualquier lugar". Gracias a su famosa Java Virtual Machine (JVM), el código corre en casi cualquier
+dispositivo sin cambios

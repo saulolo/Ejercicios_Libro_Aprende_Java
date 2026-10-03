@@ -1,9 +1,8 @@
 package uni6_NumerosAleatorios;
 
-/* todo: @author: Saulolo */
-
-/* Escribe un programa que muestre la tirada de tres dados. Se debe mostrar
+/** Escribe un programa que muestre la tirada de tres dados. Se debe mostrar
 también la suma total (los puntos que suman entre los tres dados).
+author: Saulolo
 */
 
 public class Ejercicio6_3_1 {

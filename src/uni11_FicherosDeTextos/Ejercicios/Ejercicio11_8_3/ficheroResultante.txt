@@ -1,0 +1,6 @@
+Java es un lenguaje de programación líder lanzado en 1995 por Sun Microsystems que funciona bajo el lema "Escribir una
+El dropshipping es un modelo de venta minorista online en el que una tienda comercializa productos sin disponer de
+vez, ejecutar en cualquier lugar". Gracias a su famosa Java Virtual Machine (JVM), el código corre en casi cualquier
+inventario físico. Cuando se concreta una venta, el comercio le compra el artículo a un tercero (normalmente un
+dispositivo sin cambios
+fabricante o mayorista externo) y este se encarga de empaquetarlo y enviarlo directamente al client

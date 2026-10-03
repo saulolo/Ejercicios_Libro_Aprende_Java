@@ -1,0 +1,4 @@
+Vegetales:
+- Brocoli
+- Lechuga
+- Zanahoria

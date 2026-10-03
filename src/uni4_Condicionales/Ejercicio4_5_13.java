@@ -44,7 +44,7 @@ public class Ejercicio4_5_13 {
             num2 = auxi;
         }
         
-        System.out.println("Los numeros introducidos organizados de menor a mayor "
+        System.out.println("Los numeros.txt introducidos organizados de menor a mayor "
                 + "son: " + num1 + " " + num2 + " " + num3 );
         
         
