@@ -1,0 +1,58 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tablero-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid #333;
+    margin: 0 auto;
+}
+
+/* Tamaño fijo cuadrado para cada casilla */
+td, th {
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Etiquetas de coordenadas (letras y números) */
+th {
+    background-color: #4a5568;
+    color: #ffffff;
+}
+
+/* Colores del tablero de ajedrez */
+.blanca {
+    background-color: #f0d9b5;
+}
+
+.negra {
+    background-color: #b58863;
+}
+
+/* Estilo visual para las piezas */
+.pieza {
+    font-size: 38px;
+    line-height: 1;
+    user-select: none;
+}

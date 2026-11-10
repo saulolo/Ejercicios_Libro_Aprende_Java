@@ -1,0 +1,97 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px;
+    margin: 0;
+    gap: 30px;
+}
+
+form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilo exclusivo para la caja y la tabla del calendario */
+.resultado-calendario {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.resultado-calendario h3 {
+    margin-top: 0;
+    color: #2e7d32;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.resultado-calendario table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.resultado-calendario th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.resultado-calendario td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    font-size: 15px;
+    color: #333;
+    background-color: #fafafa;
+}
+
+.resultado-calendario td:empty {
+    background-color: #ffffff; /* Celdas vacías sin color */
+}

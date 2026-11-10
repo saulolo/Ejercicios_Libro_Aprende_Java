@@ -1,0 +1,64 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-juego {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+h1 {
+    color: #333333;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* Estructura del tablero 3x3 */
+table.tablero {
+    margin: 0 auto;
+    border-collapse: collapse; /* Une los bordes para formar la rejilla */
+}
+
+table.tablero td {
+    width: 85px;
+    height: 85px;
+    border: 2px solid #b0b0b0; /* Líneas divisorias del tablero */
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+/* Ajuste de las fichas gráficas */
+table.tablero td img {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Botón opcional para regenerar sin recargar manualmente */
+.btn-recargar {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-recargar:hover {
+    background-color: #0056b3;
+}

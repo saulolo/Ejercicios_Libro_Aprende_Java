@@ -1,0 +1,39 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.acciongato {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 18px;
+    margin: 12px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    max-width: 450px;
+}
+
+.acciongato img {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #3498db;
+}
+
+.row_box {
+    background: #e1f5fe;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #01579b;
+    border-left: 4px solid #03a9f4;
+    flex-grow: 1;
+}

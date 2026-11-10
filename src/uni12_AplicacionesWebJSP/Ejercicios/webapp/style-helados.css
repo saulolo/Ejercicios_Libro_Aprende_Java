@@ -1,0 +1,176 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 30px 0;
+}
+
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 15px;
+    color: #333;
+}
+
+.helados-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+/* Tamaño fijo y uniforme para todas las imágenes de las tarjetas */
+.helado-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Evita que la imagen se deforme o estire */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 8px;
+}
+
+/* Alineación limpia dentro de cada tarjeta */
+.helado-card {
+    text-align: center;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 140px; /* Ancho fijo para que todas las tarjetas sean simétricas */
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+input[type="submit"], button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #45a049;
+}
+
+/* --- ESTILOS DE LA TARRINA Y RESULTADOS --- */
+
+.contenedor-resultado {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin: 25px auto 0 auto;
+    text-align: center;
+}
+
+.mensaje-error {
+    color: #d32f2f;
+    background: #ffebee;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #d32f2f;
+    font-weight: 600;
+}
+
+.vaso-tarrina {
+    width: 200px;
+    height: 260px;
+    border-left: 6px solid #8b0000;
+    border-right: 6px solid #8b0000;
+    border-bottom: 6px solid #8b0000;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.sabor-chocolate {
+    width: 100%;
+    background-color: #5c3a21;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.sabor-fresa {
+    width: 100%;
+    background-color: #f1b2c8;
+    color: #4a2e35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.sabor-vainilla {
+    width: 100%;
+    background-color: #fce38a;
+    color: #594a10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.tabla-resultado {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.tabla-resultado table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.tabla-resultado th,
+.tabla-resultado td {
+    padding: 8px 12px;
+}
