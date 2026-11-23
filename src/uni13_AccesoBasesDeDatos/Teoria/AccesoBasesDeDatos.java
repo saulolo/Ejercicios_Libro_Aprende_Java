@@ -12,8 +12,8 @@ public class AccesoBasesDeDatos {
     determinados datos como el número de expediente, el nombre, los apellidos, la nota media, etc. A estos datos se les
     llama campos.
 
-
-
+    Para ello creé un proyecto de Base de datos en PostgreSQL llamado AprendeJavaConEjercicios y alli creé las base de
+    datos de este libro, como por ejemplo baloncesto_db
 
     */
 

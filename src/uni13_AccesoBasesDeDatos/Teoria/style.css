@@ -1,0 +1,170 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 40px 0;
+}
+
+/* Contenedor principal tipo tarjeta */
+.card-container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 440px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    color: #34495e;
+    margin: 25px 0 10px 0;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 6px;
+}
+
+/* Campos del formulario */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.25);
+}
+
+/* Botón de acción */
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #43a047;
+}
+
+/* Mensajes de estado (Éxito y Error) */
+.mensaje-exito {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mensaje-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Lista estilizada de socios */
+.lista-socios {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.lista-socios li {
+    padding: 9px 12px;
+    background: #fdfdfd;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista-socios li:last-child {
+    border-bottom: none;
+}
+
+.socio-id {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-right: 8px;
+}
+
+.socio-localidad {
+    color: #888;
+    font-size: 13px;
+}
+
+/* Botón moderno de Borrar (Estilo Soft Danger) */
+.btn-borrar-item {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efecto al pasar el ratón por encima (Hover) */
+.btn-borrar-item:hover {
+    background-color: #dc2626;        /* Se vuelve rojo sólido */
+    color: #ffffff;                   /* Texto blanco */
+    border-color: #dc2626;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3); /* Sombra elegante */
+    transform: translateY(-1px);      /* Pequeña elevación */
+}
+
+/* Efecto al hacer clic */
+.btn-borrar-item:active {
+    transform: scale(0.96);           /* Efecto de pulsación */
+}
+
+.form-eliminar-fila {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}

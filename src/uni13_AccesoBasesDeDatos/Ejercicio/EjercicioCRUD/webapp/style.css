@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 30px 0;
+}
+
+form, div {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Estilo moderno para los desplegables <select> */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #4CAF50;
+}
+
+/* Estilo para las etiquetas de los campos */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Estilo específico para la caja de resultado */
+.resultado {
+    background: #e8f5e9;
+    border-left: 5px solid #4CAF50;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resultado h3 {
+    margin-top: 0;
+    color: #2e7d32;
+    font-size: 18px;
+}
+
+.highlight {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+
+.helados-container {
+    display: flex;
+    justify-content: space-around; /* Las distribuye uniformemente de forma horizontal */
+    align-items: center;
+    gap: 15px; /* Espacio entre cada tarjeta */
+    flex-wrap: wrap; /* Si la pantalla es muy pequeña, bajan ordenadas */
+}
+
+.helado-card {
+    text-align: center;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.helado-card img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 5px;
+}

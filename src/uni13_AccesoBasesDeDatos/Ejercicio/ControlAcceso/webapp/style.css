@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fa;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Tarjeta centrada del Login */
+.login-card {
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 320px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Grupos de campos con icono */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 6px;
+}
+
+.input-group i {
+    color: #333333;
+    font-size: 18px;
+    width: 25px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #555;
+    background: transparent;
+}
+
+/* Botón verde turquesa idéntico a la imagen */
+.btn-aceptar {
+    background-color: #009688;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 150, 136, 0.3);
+    transition: background-color 0.2s;
+}
+
+.btn-aceptar:hover {
+    background-color: #00796b;
+    color: white;
+    text-decoration: none;
+}
+
+.mensaje-error {
+    color: #d32f2f;
+    font-size: 13px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Estilos de la Pantalla 2 (Éxito) */
+.candado-exito {
+    font-size: 65px;
+    color: #009688;
+    margin: 20px 0;
+}
+
+.texto-exito {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 25px;
+}

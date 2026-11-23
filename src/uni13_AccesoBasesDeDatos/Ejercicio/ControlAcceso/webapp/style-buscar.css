@@ -1,0 +1,94 @@
+body {
+    background-color: #f7f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+/* Tarjeta general */
+.card-custom {
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 380px;
+    padding: 30px 25px;
+    margin-top: 15px;
+}
+
+/* Título espaciado idéntico a la imagen */
+.brand-title {
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 6px;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+/* Botón morado + DETALLE (Imagen 1) */
+.btn-detalle {
+    background-color: #9c27b0;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-detalle:hover {
+    background-color: #7b1fa2;
+    color: white;
+    text-decoration: none;
+}
+
+/* Ficha del cliente con iconos verdes (Imagen 2) */
+.item-detalle {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.item-detalle i {
+    color: #009688; /* Verde turquesa de los iconos */
+    width: 25px;
+    font-size: 16px;
+}
+
+/* Botón ACEPTAR verde turquesa (Imagen 2) */
+.btn-aceptar {
+    background-color: #009688;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn-aceptar:hover {
+    background-color: #00796b;
+    color: white;
+    text-decoration: none;
+}
+
+.input-busqueda {
+    border-radius: 20px;
+    padding-left: 18px;
+    font-size: 14px;
+}
