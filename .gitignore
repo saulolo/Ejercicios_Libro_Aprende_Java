@@ -3,3 +3,26 @@
 
 # Project exclude paths
 /out/
+# Compilados
+*.class
+
+# IntelliJ: configuración local/personal del IDE y plugins
+.idea/workspace.xml
+.idea/CoolRequestCommonStatePersistent.xml
+.idea/CoolRequestSetting.xml
+.idea/claudeCodeTabState.xml
+.idea/copilot.data.migration.*.xml
+.idea/dbnavigator.xml
+.idea/dataSources*.xml
+.idea/dataSources/
+.idea/jsLibraryMappings.xml
+.idea/saveactions_settings.xml
+.idea/checkstyle-idea.xml
+
+# Tomcat local generado por SmartTomcat
+.smarttomcat/
+
+# Credenciales / configuración local
+.env
+*.env
+.claude/settings.local.json
